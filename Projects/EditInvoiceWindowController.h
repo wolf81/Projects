@@ -11,14 +11,18 @@
 
 
 @interface EditInvoiceWindowController : WTWindowController
+    <NSTableViewDataSource, NSTableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet NSPopUpButton *clientsPopUpButton;
 @property (nonatomic, strong) IBOutlet NSTextField *rateField;
 @property (nonatomic, strong) IBOutlet NSTextField  *serialNumberField;
-@property (nonatomic, strong) IBOutlet NSPopUpButton *monthPopUpButton;
+@property (nonatomic, strong) IBOutlet NSDatePicker *monthPicker;
+@property (nonatomic, strong) IBOutlet NSTableView *tableView;
 
 - (IBAction)saveAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
+- (IBAction)clientChangedAction:(id)sender;
+- (IBAction)monthChangedAction:(id)sender;
 
 - (id)initWithInvoice:(Invoice *)invoice
               context:(NSManagedObjectContext *)context;

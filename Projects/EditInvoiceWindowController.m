@@ -9,11 +9,25 @@
 #import "EditInvoiceWindowController.h"
 #import "Invoice.h"
 #import "Client.h"
+#import "Project.h"
+#import "Task.h"
+
+
+// TODO: should be able to choose year as well - add controls and adjust code accordingly
+// TODO: consider removing serial number field - not necessary, should be calculated anyway
 
 
 @interface EditInvoiceWindowController ()
 
+@property (nonatomic, strong) Invoice *invoice;
 @property (nonatomic, copy) NSArray *clients;
+@property (nonatomic, copy) NSArray *tasks;
+
+@property (nonatomic, strong) Client *currentClient;
+@property (nonatomic, strong) NSDate *startDate;
+@property (nonatomic, strong) NSDate *endDate;
+
+- (void)updateTasks;
 
 @end
 
@@ -24,6 +38,7 @@
 {
     self = [super initWithWindowNibName:@"EditInvoiceWindow" context:context];
     if (self) {
+        self.invoice = invoice;
     }
     return self;
 }
@@ -32,21 +47,10 @@
 {
     [super windowDidLoad];
 
-    [self reloadData];
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDate *currentDate = [NSDate date];
-    NSDateComponents *comps = [calendar components:NSMonthCalendarUnit fromDate:currentDate];
-    
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    for (int i = 0; i < 12; i++) {
-        NSString *monthName = [dateFormatter.monthSymbols objectAtIndex:i];
-        [_monthPopUpButton addItemWithTitle:monthName];
+    self.monthPicker.dateValue = [NSDate date];
+    [self configureDatesForMonth:_monthPicker.dateValue];
 
-        if ((i + 1) == comps.month) {
-            [_monthPopUpButton selectItemAtIndex:i];
-        }
-    }
+    [self reloadData];
     
     _rateField.stringValue = @"21,5";
     _serialNumberField.stringValue = @"2014001";
@@ -73,6 +77,7 @@
         
         if (_clients.count > 0) {
             [_clientsPopUpButton selectItemAtIndex:0];
+            [self clientChangedAction:nil];
         }
     }
 }
@@ -81,11 +86,126 @@
 
 - (void)saveAction:(id)sender
 {
+    if (_invoice == nil) {
+        self.invoice = (Invoice *) [NSEntityDescription insertNewObjectForEntityForName:@"Invoice" inManagedObjectContext:self.objectContext];
+    }
+    
+    NSInteger clientIdx = [_clientsPopUpButton indexOfSelectedItem];
+    Client *client =_clients[clientIdx];
+    
+    _invoice.client = client;
+    _invoice.serialNumber = [NSNumber numberWithInt:_serialNumberField.intValue];
+    _invoice.taxRate = [NSDecimalNumber decimalNumberWithString:_rateField.stringValue];
+
+    // start date will be the first day of the selected month
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    NSDateComponents *components = [calendar components:NSMonthCalendarUnit fromDate:_monthPicker.dateValue];
+    _invoice.month = [NSNumber numberWithInt:components.month];
+    
+    NSError *error = nil;
+    BOOL success = [self.objectContext save:&error];
+    
+    if (!success) {
+        NSAlert *alert = [NSAlert alertWithError:error];
+        [alert runModal];
+    } else {
+        [NSApp endSheet:self.window returnCode:NSOKButton];
+    }
 }
 
 - (void)cancelAction:(id)sender
 {
     [self endSheet];
+}
+
+- (IBAction)clientChangedAction:(id)sender
+{
+    self.currentClient = (Client *)[_clientsPopUpButton selectedItem].representedObject;
+    
+    if (self.currentClient && self.startDate && self.endDate) {
+        [self updateTasks];
+    }
+}
+
+- (void)configureDatesForMonth:(NSDate *)date
+{
+    // start date will be the first day of the selected month
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+    
+    NSDateComponents *components = [calendar components:NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
+    components.day = 1;
+    
+    self.startDate = [calendar dateFromComponents:components];
+    
+    // get number of days in month
+    NSRange range = [calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:_startDate];
+    NSUInteger numberOfDaysInMonth = range.length;
+    
+    // end date will be the last day of the selected month at 23:59:59
+    self.endDate = [_startDate dateByAddingTimeInterval:(3600 * 24 * numberOfDaysInMonth) - 1];
+}
+
+- (IBAction)monthChangedAction:(id)sender
+{
+    [self configureDatesForMonth:_monthPicker.dateValue];
+    
+    if (self.currentClient && self.startDate && self.endDate) {
+        [self updateTasks];
+    }
+}
+
+- (void)updateTasks
+{
+    // TODO: consider moving some of this code into a fetched property in the Core Data model
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tasks.date BETWEEN %@",@[_startDate, _endDate]];
+    NSSet *projects = [_currentClient.projects filteredSetUsingPredicate:predicate];
+
+    NSArray *tasks = @[];
+    for (Project *project in projects) {
+        for (Task *task in project.tasks) {
+            if ([task.date compare:_startDate] == NSOrderedDescending && [task.date compare:_endDate] == NSOrderedAscending) {
+                tasks = [tasks arrayByAddingObject:task];
+            }
+        }
+    }
+    self.tasks = tasks;
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - Table view
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return _tasks.count;
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    Task *task = [_tasks objectAtIndex:row];
+
+    id value = nil;
+    
+    if ([tableColumn.identifier isEqualToString:@"name"]) {
+        value = task.name;
+    } else if ([tableColumn.identifier isEqualToString:@"hours"]) {
+        value = task.hours;
+    }
+    
+    return value;
+}
+
+- (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
+{
+    return NO;
+}
+
+- (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    return NO;
 }
 
 @end
