@@ -15,8 +15,7 @@
 @dynamic issueDate;
 @dynamic taxRate;
 @dynamic serialNumber;
-@dynamic startDate;
-@dynamic endDate;
+@dynamic month;
 @dynamic client;
 
 @end

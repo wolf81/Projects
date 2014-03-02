@@ -12,10 +12,15 @@
 
 @interface EditInvoiceWindowController : WTWindowController
 
-- (id)initWithInvoice:(Invoice *)invoice
-              context:(NSManagedObjectContext *)context;
+@property (nonatomic, strong) IBOutlet NSPopUpButton *clientsPopUpButton;
+@property (nonatomic, strong) IBOutlet NSTextField *rateField;
+@property (nonatomic, strong) IBOutlet NSTextField  *serialNumberField;
+@property (nonatomic, strong) IBOutlet NSPopUpButton *monthPopUpButton;
 
 - (IBAction)saveAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
+
+- (id)initWithInvoice:(Invoice *)invoice
+              context:(NSManagedObjectContext *)context;
 
 @end

@@ -11,9 +11,9 @@
 		7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100318C21AD7007C07CE /* InvoicesViewController.m */; };
 		7911100618C21AE6007C07CE /* InvoicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911100518C21AE6007C07CE /* InvoicesView.xib */; };
 		7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */; };
-		7911101118C36222007C07CE /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101018C36222007C07CE /* Invoice.m */; };
 		7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911101218C3626D007C07CE /* EditInvoiceWindow.xib */; };
 		7911101918C36424007C07CE /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101818C36424007C07CE /* Client.m */; };
+		7911101C18C3717C007C07CE /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101B18C3717C007C07CE /* Invoice.m */; };
 		79267D7A18BF87770036911D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79267D7918BF87770036911D /* Cocoa.framework */; };
 		79267D8418BF87770036911D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79267D8218BF87770036911D /* InfoPlist.strings */; };
 		79267D8618BF87770036911D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79267D8518BF87770036911D /* main.m */; };
@@ -84,11 +84,11 @@
 		7911100518C21AE6007C07CE /* InvoicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesView.xib; sourceTree = "<group>"; };
 		7911100C18C35F3F007C07CE /* EditInvoiceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInvoiceWindowController.h; sourceTree = "<group>"; };
 		7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInvoiceWindowController.m; sourceTree = "<group>"; };
-		7911100F18C36222007C07CE /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
-		7911101018C36222007C07CE /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
 		7911101218C3626D007C07CE /* EditInvoiceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInvoiceWindow.xib; sourceTree = "<group>"; };
 		7911101718C36424007C07CE /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		7911101818C36424007C07CE /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
+		7911101A18C3717C007C07CE /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		7911101B18C3717C007C07CE /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
 		79267D7618BF87770036911D /* Projects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79267D7918BF87770036911D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79267D7C18BF87770036911D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -194,8 +194,8 @@
 			children = (
 				7911101718C36424007C07CE /* Client.h */,
 				7911101818C36424007C07CE /* Client.m */,
-				7911100F18C36222007C07CE /* Invoice.h */,
-				7911101018C36222007C07CE /* Invoice.m */,
+				7911101A18C3717C007C07CE /* Invoice.h */,
+				7911101B18C3717C007C07CE /* Invoice.m */,
 				79110FFD18C21189007C07CE /* Task.h */,
 				79110FFE18C21189007C07CE /* Task.m */,
 				797E9B4318C0FA7400E38578 /* Project.h */,
@@ -559,7 +559,6 @@
 			files = (
 				79267D8618BF87770036911D /* main.m in Sources */,
 				797E9B4018C0F7A800E38578 /* EditProjectWindowController.m in Sources */,
-				7911101118C36222007C07CE /* Invoice.m in Sources */,
 				797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */,
 				797E9B6018C14E8100E38578 /* EditTaskWindowController.m in Sources */,
 				79110FFF18C21189007C07CE /* Task.m in Sources */,
@@ -574,6 +573,7 @@
 				79267DDE18BFA9AB0036911D /* EditClientWindowController.m in Sources */,
 				797E9B5218C13BEE00E38578 /* WTViewController.m in Sources */,
 				797E9B2A18C079EB00E38578 /* MainWindowController.m in Sources */,
+				7911101C18C3717C007C07CE /* Invoice.m in Sources */,
 				7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */,
 				7911101918C36424007C07CE /* Client.m in Sources */,
 			);

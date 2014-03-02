@@ -16,8 +16,7 @@
 @property (nonatomic, retain) NSDate * issueDate;
 @property (nonatomic, retain) NSDecimalNumber * taxRate;
 @property (nonatomic, retain) NSNumber * serialNumber;
-@property (nonatomic, retain) NSDate * startDate;
-@property (nonatomic, retain) NSDate * endDate;
+@property (nonatomic, retain) NSNumber * month;
 @property (nonatomic, retain) Client *client;
 
 @end
