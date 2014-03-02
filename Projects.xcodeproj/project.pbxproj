@@ -10,6 +10,10 @@
 		79110FFF18C21189007C07CE /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 79110FFE18C21189007C07CE /* Task.m */; };
 		7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100318C21AD7007C07CE /* InvoicesViewController.m */; };
 		7911100618C21AE6007C07CE /* InvoicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911100518C21AE6007C07CE /* InvoicesView.xib */; };
+		7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */; };
+		7911101118C36222007C07CE /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101018C36222007C07CE /* Invoice.m */; };
+		7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911101218C3626D007C07CE /* EditInvoiceWindow.xib */; };
+		7911101918C36424007C07CE /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101818C36424007C07CE /* Client.m */; };
 		79267D7A18BF87770036911D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79267D7918BF87770036911D /* Cocoa.framework */; };
 		79267D8418BF87770036911D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79267D8218BF87770036911D /* InfoPlist.strings */; };
 		79267D8618BF87770036911D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79267D8518BF87770036911D /* main.m */; };
@@ -39,7 +43,6 @@
 		797E9B2F18C0A7E600E38578 /* ClientsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B2E18C0A7E600E38578 /* ClientsView.xib */; };
 		797E9B3218C0A80F00E38578 /* ProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B3118C0A80F00E38578 /* ProjectsViewController.m */; };
 		797E9B3418C0A81D00E38578 /* ProjectsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B3318C0A81D00E38578 /* ProjectsView.xib */; };
-		797E9B3D18C0F11B00E38578 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B3C18C0F11B00E38578 /* Client.m */; };
 		797E9B4018C0F7A800E38578 /* EditProjectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B3F18C0F7A800E38578 /* EditProjectWindowController.m */; };
 		797E9B4218C0F7BA00E38578 /* EditProjectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B4118C0F7BA00E38578 /* EditProjectWindow.xib */; };
 		797E9B4518C0FA7400E38578 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B4418C0FA7400E38578 /* Project.m */; };
@@ -79,6 +82,13 @@
 		7911100218C21AD7007C07CE /* InvoicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesViewController.h; sourceTree = "<group>"; };
 		7911100318C21AD7007C07CE /* InvoicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesViewController.m; sourceTree = "<group>"; };
 		7911100518C21AE6007C07CE /* InvoicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesView.xib; sourceTree = "<group>"; };
+		7911100C18C35F3F007C07CE /* EditInvoiceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInvoiceWindowController.h; sourceTree = "<group>"; };
+		7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInvoiceWindowController.m; sourceTree = "<group>"; };
+		7911100F18C36222007C07CE /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		7911101018C36222007C07CE /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
+		7911101218C3626D007C07CE /* EditInvoiceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInvoiceWindow.xib; sourceTree = "<group>"; };
+		7911101718C36424007C07CE /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		7911101818C36424007C07CE /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		79267D7618BF87770036911D /* Projects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79267D7918BF87770036911D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79267D7C18BF87770036911D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -124,8 +134,6 @@
 		797E9B3018C0A80F00E38578 /* ProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsViewController.h; sourceTree = "<group>"; };
 		797E9B3118C0A80F00E38578 /* ProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsViewController.m; sourceTree = "<group>"; };
 		797E9B3318C0A81D00E38578 /* ProjectsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectsView.xib; sourceTree = "<group>"; };
-		797E9B3B18C0F11B00E38578 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		797E9B3C18C0F11B00E38578 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		797E9B3E18C0F7A800E38578 /* EditProjectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProjectWindowController.h; sourceTree = "<group>"; };
 		797E9B3F18C0F7A800E38578 /* EditProjectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProjectWindowController.m; sourceTree = "<group>"; };
 		797E9B4118C0F7BA00E38578 /* EditProjectWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProjectWindow.xib; sourceTree = "<group>"; };
@@ -184,10 +192,12 @@
 		7911100018C21191007C07CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7911101718C36424007C07CE /* Client.h */,
+				7911101818C36424007C07CE /* Client.m */,
+				7911100F18C36222007C07CE /* Invoice.h */,
+				7911101018C36222007C07CE /* Invoice.m */,
 				79110FFD18C21189007C07CE /* Task.h */,
 				79110FFE18C21189007C07CE /* Task.m */,
-				797E9B3B18C0F11B00E38578 /* Client.h */,
-				797E9B3C18C0F11B00E38578 /* Client.m */,
 				797E9B4318C0FA7400E38578 /* Project.h */,
 				797E9B4418C0FA7400E38578 /* Project.m */,
 			);
@@ -200,6 +210,9 @@
 				7911100218C21AD7007C07CE /* InvoicesViewController.h */,
 				7911100318C21AD7007C07CE /* InvoicesViewController.m */,
 				7911100518C21AE6007C07CE /* InvoicesView.xib */,
+				7911100C18C35F3F007C07CE /* EditInvoiceWindowController.h */,
+				7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */,
+				7911101218C3626D007C07CE /* EditInvoiceWindow.xib */,
 			);
 			name = Invoices;
 			sourceTree = "<group>";
@@ -505,6 +518,7 @@
 				797E9B5D18C14E1000E38578 /* TasksView.xib in Resources */,
 				797E9B6B18C1595A00E38578 /* client.png in Resources */,
 				797E9B6718C158C300E38578 /* task.png in Resources */,
+				7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */,
 				79267DE018BFA9D10036911D /* EditClientWindow.xib in Resources */,
 				79267D9518BF87770036911D /* Images.xcassets in Resources */,
 				797E9B4218C0F7BA00E38578 /* EditProjectWindow.xib in Resources */,
@@ -545,21 +559,23 @@
 			files = (
 				79267D8618BF87770036911D /* main.m in Sources */,
 				797E9B4018C0F7A800E38578 /* EditProjectWindowController.m in Sources */,
+				7911101118C36222007C07CE /* Invoice.m in Sources */,
 				797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */,
 				797E9B6018C14E8100E38578 /* EditTaskWindowController.m in Sources */,
 				79110FFF18C21189007C07CE /* Task.m in Sources */,
 				797E9B5B18C14DD200E38578 /* TasksViewController.m in Sources */,
 				797E9B2D18C0A7C900E38578 /* ClientsViewController.m in Sources */,
 				797E9B4518C0FA7400E38578 /* Project.m in Sources */,
-				797E9B3D18C0F11B00E38578 /* Client.m in Sources */,
 				79267D9318BF87770036911D /* Projects.xcdatamodeld in Sources */,
 				797E9B3218C0A80F00E38578 /* ProjectsViewController.m in Sources */,
+				7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */,
 				79267D8D18BF87770036911D /* WTAppDelegate.m in Sources */,
 				797E9B4818C1265400E38578 /* WTTableView.m in Sources */,
 				79267DDE18BFA9AB0036911D /* EditClientWindowController.m in Sources */,
 				797E9B5218C13BEE00E38578 /* WTViewController.m in Sources */,
 				797E9B2A18C079EB00E38578 /* MainWindowController.m in Sources */,
 				7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */,
+				7911101918C36424007C07CE /* Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

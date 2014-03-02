@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="InvoicesViewController">
             <connections>
+                <outlet property="tableView" destination="dA7-sT-A3w" id="kFt-4w-azU"/>
                 <outlet property="view" destination="1" id="xEa-t7-N1j"/>
             </connections>
         </customObject>
@@ -84,6 +85,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="addAction:" target="-2" id="af8-uN-hTw"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TJg-Uc-CDt">
                     <rect key="frame" x="353" y="13" width="81" height="32"/>
@@ -95,6 +99,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="editAction:" target="-2" id="gHf-Jh-H8A"/>
+                    </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t1b-6Y-yNf">
                     <rect key="frame" x="14" y="13" width="81" height="32"/>
@@ -103,6 +110,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="deleteAction:" target="-2" id="BCp-3d-vbJ"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>

@@ -7,6 +7,7 @@
 //
 
 #import "InvoicesViewController.h"
+#import "EditInvoiceWindowController.h"
 
 
 @interface InvoicesViewController ()
@@ -34,10 +35,21 @@
 
 - (IBAction)addAction:(id)sender
 {
+    EditInvoiceWindowController *windowController = [[EditInvoiceWindowController alloc]
+                                                     initWithInvoice:nil
+                                                     context:self.objectContext];
+    [windowController presentSheet:self.view.window];
+    [self reloadData];
 }
 
 - (IBAction)editAction:(id)sender
 {
+    Invoice *invoice = _invoices[_tableView.selectedRow];
+    EditInvoiceWindowController *windowController = [[EditInvoiceWindowController alloc]
+                                                     initWithInvoice:invoice
+                                                     context:self.objectContext];
+    [windowController presentSheet:self.view.window];
+    [self reloadData];
 }
 
 - (IBAction)deleteAction:(id)sender

@@ -8,7 +8,16 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="invoices" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Invoice" inverseName="client" inverseEntity="Invoice" syncable="YES"/>
         <relationship name="projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Project" inverseName="client" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Invoice" representedClassName="Invoice" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="issueDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="serialNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="taxRate" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="invoices" inverseEntity="Client" syncable="YES"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,8 +33,9 @@
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="tasks" inverseEntity="Project" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Project" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Task" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Client" positionX="-9" positionY="69" width="128" height="178"/>
+        <element name="Project" positionX="-18" positionY="-117" width="128" height="90"/>
+        <element name="Task" positionX="-308" positionY="-90" width="128" height="135"/>
+        <element name="Invoice" positionX="-252" positionY="117" width="128" height="133"/>
     </elements>
 </model>
