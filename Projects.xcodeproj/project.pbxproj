@@ -14,6 +14,8 @@
 		7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911101218C3626D007C07CE /* EditInvoiceWindow.xib */; };
 		7911101918C36424007C07CE /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101818C36424007C07CE /* Client.m */; };
 		7911101C18C3717C007C07CE /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101B18C3717C007C07CE /* Invoice.m */; };
+		791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */; };
+		791BCCF818C3DB8600F3F553 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */; };
 		79267D7A18BF87770036911D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79267D7918BF87770036911D /* Cocoa.framework */; };
 		79267D8418BF87770036911D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 79267D8218BF87770036911D /* InfoPlist.strings */; };
 		79267D8618BF87770036911D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 79267D8518BF87770036911D /* main.m */; };
@@ -89,6 +91,9 @@
 		7911101818C36424007C07CE /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		7911101A18C3717C007C07CE /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
 		7911101B18C3717C007C07CE /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
+		791BCCF418C3DB7900F3F553 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		79267D7618BF87770036911D /* Projects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Projects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79267D7918BF87770036911D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		79267D7C18BF87770036911D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -217,6 +222,16 @@
 			name = Invoices;
 			sourceTree = "<group>";
 		};
+		791BCCF318C3DB6000F3F553 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				791BCCF418C3DB7900F3F553 /* PreferencesWindowController.h */,
+				791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */,
+				791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 		79267D6D18BF87770036911D = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +280,7 @@
 		79267D7F18BF87770036911D /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				791BCCF318C3DB6000F3F553 /* Preferences */,
 				7911100018C21191007C07CE /* Models */,
 				797E9B5618C13DF700E38578 /* Resources */,
 				797E9B5718C14D1A00E38578 /* Startup */,
@@ -518,6 +534,7 @@
 				797E9B5D18C14E1000E38578 /* TasksView.xib in Resources */,
 				797E9B6B18C1595A00E38578 /* client.png in Resources */,
 				797E9B6718C158C300E38578 /* task.png in Resources */,
+				791BCCF818C3DB8600F3F553 /* PreferencesWindow.xib in Resources */,
 				7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */,
 				79267DE018BFA9D10036911D /* EditClientWindow.xib in Resources */,
 				79267D9518BF87770036911D /* Images.xcassets in Resources */,
@@ -559,6 +576,7 @@
 			files = (
 				79267D8618BF87770036911D /* main.m in Sources */,
 				797E9B4018C0F7A800E38578 /* EditProjectWindowController.m in Sources */,
+				791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */,
 				797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */,
 				797E9B6018C14E8100E38578 /* EditTaskWindowController.m in Sources */,
 				79110FFF18C21189007C07CE /* Task.m in Sources */,

@@ -20,5 +20,6 @@
 @property (readonly, strong, nonatomic) MainWindowController *mainWindowController;
 
 - (IBAction)saveAction:(id)sender;
+- (IBAction)preferencesAction:(id)sender;
 
 @end

@@ -7,6 +7,14 @@
 //
 
 #import "WTAppDelegate.h"
+#import "PreferencesWindowController.h"
+
+
+@interface WTAppDelegate ()
+
+@property (nonatomic, strong) PreferencesWindowController *preferencesWindowController;
+
+@end
 
 
 @implementation WTAppDelegate
@@ -127,20 +135,6 @@
     return [[self managedObjectContext] undoManager];
 }
 
-// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-- (IBAction)saveAction:(id)sender
-{
-    NSError *error = nil;
-    
-    if (![[self managedObjectContext] commitEditing]) {
-        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
-    }
-    
-    if (![[self managedObjectContext] save:&error]) {
-        [[NSApplication sharedApplication] presentError:error];
-    }
-}
-
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {
     return YES;
@@ -190,6 +184,28 @@
     }
 
     return NSTerminateNow;
+}
+
+#pragma mark - Actions
+
+// Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+- (IBAction)saveAction:(id)sender
+{
+    NSError *error = nil;
+    
+    if (![[self managedObjectContext] commitEditing]) {
+        NSLog(@"%@:%@ unable to commit editing before saving", [self class], NSStringFromSelector(_cmd));
+    }
+    
+    if (![[self managedObjectContext] save:&error]) {
+        [[NSApplication sharedApplication] presentError:error];
+    }
+}
+
+- (void)preferencesAction:(id)sender
+{
+    self.preferencesWindowController = [[PreferencesWindowController alloc] init];
+    [_preferencesWindowController showWindow:nil];
 }
 
 @end
