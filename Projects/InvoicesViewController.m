@@ -10,10 +10,13 @@
 #import "EditInvoiceWindowController.h"
 #import "Client.h"
 
+#import "WTPDFWriter.h"
+
 
 @interface InvoicesViewController ()
 
 @property (nonatomic, copy) NSArray *invoices;
+@property (nonatomic, strong) WTPDFWriter *writer;
 
 @end
 
@@ -85,6 +88,21 @@
     } else {
         [self reloadData];
     }
+}
+
+- (void)pdfAction:(id)sender
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"];
+    NSError *error = nil;
+    NSString *contents = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    
+    if (contents == nil) {
+        NSLog(@"%@", error);
+        return;
+    }
+    
+    self.writer = [[WTPDFWriter alloc] initWithHTMLString:contents pageSize:kPaperSizeA4];
+    [_writer write];
 }
 
 #pragma mark - Table view

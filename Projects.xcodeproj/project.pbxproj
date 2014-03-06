@@ -59,6 +59,9 @@
 		797E9B6918C1592400E38578 /* invoice.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6818C1592400E38578 /* invoice.png */; };
 		797E9B6B18C1595A00E38578 /* client.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6A18C1595A00E38578 /* client.png */; };
 		797E9B6D18C15A4300E38578 /* project.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6C18C15A4300E38578 /* project.png */; };
+		799734CE18C8269100157469 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799734CD18C8269100157469 /* WebKit.framework */; };
+		799734D518C8304900157469 /* WTPDFWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734D418C8304900157469 /* WTPDFWriter.m */; };
+		799734D718C8D36E00157469 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 799734D618C8D36E00157469 /* test.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +163,12 @@
 		797E9B6818C1592400E38578 /* invoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invoice.png; sourceTree = "<group>"; };
 		797E9B6A18C1595A00E38578 /* client.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client.png; sourceTree = "<group>"; };
 		797E9B6C18C15A4300E38578 /* project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project.png; sourceTree = "<group>"; };
+		799734CD18C8269100157469 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		799734CF18C8287D00157469 /* NDHTMLtoPDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDHTMLtoPDF.h; sourceTree = "<group>"; };
+		799734D018C8287D00157469 /* NDHTMLtoPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDHTMLtoPDF.m; sourceTree = "<group>"; };
+		799734D318C8304900157469 /* WTPDFWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTPDFWriter.h; sourceTree = "<group>"; };
+		799734D418C8304900157469 /* WTPDFWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTPDFWriter.m; sourceTree = "<group>"; };
+		799734D618C8D36E00157469 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				799734CE18C8269100157469 /* WebKit.framework in Frameworks */,
 				79267D7A18BF87770036911D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +266,7 @@
 		79267D7818BF87770036911D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				799734CD18C8269100157469 /* WebKit.framework */,
 				79267D7918BF87770036911D /* Cocoa.framework */,
 				79267D9B18BF87770036911D /* XCTest.framework */,
 				79267DB018BF87770036911D /* CoreServices.framework */,
@@ -280,6 +291,9 @@
 		79267D7F18BF87770036911D /* Projects */ = {
 			isa = PBXGroup;
 			children = (
+				799734D618C8D36E00157469 /* test.html */,
+				799734D218C8302E00157469 /* Helpers */,
+				799734C918C8263700157469 /* PDF Example */,
 				791BCCF318C3DB6000F3F553 /* Preferences */,
 				7911100018C21191007C07CE /* Models */,
 				797E9B5618C13DF700E38578 /* Resources */,
@@ -433,6 +447,24 @@
 			name = Tasks;
 			sourceTree = "<group>";
 		};
+		799734C918C8263700157469 /* PDF Example */ = {
+			isa = PBXGroup;
+			children = (
+				799734CF18C8287D00157469 /* NDHTMLtoPDF.h */,
+				799734D018C8287D00157469 /* NDHTMLtoPDF.m */,
+			);
+			name = "PDF Example";
+			sourceTree = "<group>";
+		};
+		799734D218C8302E00157469 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				799734D318C8304900157469 /* WTPDFWriter.h */,
+				799734D418C8304900157469 /* WTPDFWriter.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -537,6 +569,7 @@
 				791BCCF818C3DB8600F3F553 /* PreferencesWindow.xib in Resources */,
 				7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */,
 				79267DE018BFA9D10036911D /* EditClientWindow.xib in Resources */,
+				799734D718C8D36E00157469 /* test.html in Resources */,
 				79267D9518BF87770036911D /* Images.xcassets in Resources */,
 				797E9B4218C0F7BA00E38578 /* EditProjectWindow.xib in Resources */,
 				797E9B6918C1592400E38578 /* invoice.png in Resources */,
@@ -579,6 +612,7 @@
 				791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */,
 				797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */,
 				797E9B6018C14E8100E38578 /* EditTaskWindowController.m in Sources */,
+				799734D518C8304900157469 /* WTPDFWriter.m in Sources */,
 				79110FFF18C21189007C07CE /* Task.m in Sources */,
 				797E9B5B18C14DD200E38578 /* TasksViewController.m in Sources */,
 				797E9B2D18C0A7C900E38578 /* ClientsViewController.m in Sources */,

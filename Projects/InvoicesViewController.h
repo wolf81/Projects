@@ -17,6 +17,7 @@
 - (IBAction)addAction:(id)sender;
 - (IBAction)editAction:(id)sender;
 - (IBAction)deleteAction:(id)sender;
+- (IBAction)pdfAction:(id)sender;
 
 - (void)reloadData;
 

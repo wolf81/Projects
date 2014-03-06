@@ -83,7 +83,7 @@
                     <rect key="frame" x="434" y="13" width="81" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="69" id="9Kb-hd-omI"/>
+                        <constraint firstAttribute="width" constant="69" id="NDb-Kb-qyB"/>
                     </constraints>
                     <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3N4-VD-kf1">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -97,7 +97,7 @@
                     <rect key="frame" x="353" y="13" width="81" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="69" id="X25-fU-Dy9"/>
+                        <constraint firstAttribute="width" constant="69" id="6wA-GN-j63"/>
                     </constraints>
                     <buttonCell key="cell" type="push" title="Edit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FON-d6-luh">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -105,6 +105,20 @@
                     </buttonCell>
                     <connections>
                         <action selector="editAction:" target="-2" id="gHf-Jh-H8A"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pgc-Yo-s22">
+                    <rect key="frame" x="192" y="13" width="81" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="69" id="C29-CE-gdP"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="PDF" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Ni-Y7-Wog">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pdfAction:" target="-2" id="H98-H5-R0t"/>
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t1b-6Y-yNf">
@@ -120,16 +134,18 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="t1b-6Y-yNf" firstAttribute="top" secondItem="q5F-pd-Nxj" secondAttribute="bottom" constant="20" symbolic="YES" id="2aT-hh-c8E"/>
-                <constraint firstItem="Z7G-ar-eA6" firstAttribute="leading" secondItem="TJg-Uc-CDt" secondAttribute="trailing" constant="12" symbolic="YES" id="3FF-Ak-Z3h"/>
-                <constraint firstItem="Z7G-ar-eA6" firstAttribute="trailing" secondItem="q5F-pd-Nxj" secondAttribute="trailing" id="6xI-vT-TLX"/>
-                <constraint firstItem="q5F-pd-Nxj" firstAttribute="leading" secondItem="t1b-6Y-yNf" secondAttribute="leading" id="BGx-zF-4hK"/>
-                <constraint firstItem="q5F-pd-Nxj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="DkL-LS-bWs"/>
-                <constraint firstItem="q5F-pd-Nxj" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="Vk3-JC-Mg3"/>
-                <constraint firstAttribute="trailing" secondItem="q5F-pd-Nxj" secondAttribute="trailing" constant="20" symbolic="YES" id="WCA-qa-wFo"/>
-                <constraint firstItem="t1b-6Y-yNf" firstAttribute="baseline" secondItem="TJg-Uc-CDt" secondAttribute="baseline" id="cNM-k6-xAh"/>
-                <constraint firstItem="TJg-Uc-CDt" firstAttribute="baseline" secondItem="Z7G-ar-eA6" secondAttribute="baseline" id="kcT-vF-y2m"/>
-                <constraint firstAttribute="bottom" secondItem="t1b-6Y-yNf" secondAttribute="bottom" constant="20" symbolic="YES" id="yBa-Wb-nS7"/>
+                <constraint firstItem="q5F-pd-Nxj" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="3RW-CA-3G9"/>
+                <constraint firstItem="Z7G-ar-eA6" firstAttribute="baseline" secondItem="TJg-Uc-CDt" secondAttribute="baseline" id="5oc-Lh-ZY4"/>
+                <constraint firstItem="TJg-Uc-CDt" firstAttribute="leading" secondItem="pgc-Yo-s22" secondAttribute="trailing" constant="92" id="Ba0-Yu-acU"/>
+                <constraint firstAttribute="bottom" secondItem="t1b-6Y-yNf" secondAttribute="bottom" constant="20" symbolic="YES" id="DBo-zE-rEr"/>
+                <constraint firstItem="q5F-pd-Nxj" firstAttribute="leading" secondItem="t1b-6Y-yNf" secondAttribute="leading" id="Krs-mF-YFf"/>
+                <constraint firstItem="Z7G-ar-eA6" firstAttribute="leading" secondItem="TJg-Uc-CDt" secondAttribute="trailing" constant="12" symbolic="YES" id="Nu9-O2-mkt"/>
+                <constraint firstItem="t1b-6Y-yNf" firstAttribute="top" secondItem="q5F-pd-Nxj" secondAttribute="bottom" constant="20" symbolic="YES" id="Nws-bi-EMy"/>
+                <constraint firstItem="TJg-Uc-CDt" firstAttribute="baseline" secondItem="pgc-Yo-s22" secondAttribute="baseline" id="Pfx-IJ-ccL"/>
+                <constraint firstItem="q5F-pd-Nxj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="Rf4-4a-2s2"/>
+                <constraint firstItem="Z7G-ar-eA6" firstAttribute="trailing" secondItem="q5F-pd-Nxj" secondAttribute="trailing" id="XCF-1N-nyt"/>
+                <constraint firstAttribute="trailing" secondItem="q5F-pd-Nxj" secondAttribute="trailing" constant="20" symbolic="YES" id="doD-DG-Jvy"/>
+                <constraint firstItem="t1b-6Y-yNf" firstAttribute="baseline" secondItem="pgc-Yo-s22" secondAttribute="baseline" id="nXL-u2-0sZ"/>
             </constraints>
         </customView>
     </objects>
