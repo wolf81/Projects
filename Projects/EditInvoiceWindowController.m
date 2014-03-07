@@ -22,10 +22,8 @@
 @property (nonatomic, strong) Invoice *invoice;
 @property (nonatomic, copy) NSArray *clients;
 @property (nonatomic, copy) NSArray *tasks;
-
 @property (nonatomic, strong) Client *currentClient;
-@property (nonatomic, strong) NSDate *startDate;
-@property (nonatomic, strong) NSDate *endDate;
+@property (nonatomic, strong) NSMutableArray *tasksToAdd;
 
 - (void)updateTasks;
 
@@ -39,6 +37,7 @@
     self = [super initWithWindowNibName:@"EditInvoiceWindow" context:context];
     if (self) {
         self.invoice = invoice;
+        self.tasksToAdd = [NSMutableArray array];
     }
     return self;
 }
@@ -46,9 +45,6 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-
-    self.monthPicker.dateValue = [NSDate date];
-    [self configureDatesForMonth:_monthPicker.dateValue];
 
     [self reloadData];
     
@@ -74,15 +70,28 @@
             [_clientsPopUpButton addItemWithTitle:client.name];
             _clientsPopUpButton.lastItem.representedObject = client;
         }
-        
+
         if (_clients.count > 0) {
-            [_clientsPopUpButton selectItemAtIndex:0];
+            if (_invoice != nil) {
+                for (NSMenuItem *item in _clientsPopUpButton.itemArray) {
+                    if (item.representedObject == _invoice.client) {
+                        [_clientsPopUpButton selectItem:item];
+                        break;
+                    }
+                }
+            } else {
+                [_clientsPopUpButton selectItemAtIndex:0];
+            }
             [self clientChangedAction:nil];
         }
     }
 }
 
 #pragma mark - Actions 
+
+- (void)addTaskAction:(id)sender
+{
+}
 
 - (void)saveAction:(id)sender
 {
@@ -97,11 +106,9 @@
     _invoice.serialNumber = [NSNumber numberWithInt:_serialNumberField.intValue];
     _invoice.taxRate = [NSDecimalNumber decimalNumberWithString:_rateField.stringValue];
 
-    // start date will be the first day of the selected month
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    NSDateComponents *components = [calendar components:NSMonthCalendarUnit fromDate:_monthPicker.dateValue];
-    _invoice.month = [NSNumber numberWithInt:components.month];
+    for (Task *task in _invoice.tasks) {
+        task.invoice = [_tasksToAdd containsObject:task] ? _invoice : nil;
+    }
     
     NSError *error = nil;
     BOOL success = [self.objectContext save:&error];
@@ -123,55 +130,43 @@
 {
     self.currentClient = (Client *)[_clientsPopUpButton selectedItem].representedObject;
     
-    if (self.currentClient && self.startDate && self.endDate) {
-        [self updateTasks];
-    }
-}
-
-- (void)configureDatesForMonth:(NSDate *)date
-{
-    // start date will be the first day of the selected month
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    calendar.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-    
-    NSDateComponents *components = [calendar components:NSMonthCalendarUnit | NSYearCalendarUnit fromDate:date];
-    components.day = 1;
-    
-    self.startDate = [calendar dateFromComponents:components];
-    
-    // get number of days in month
-    NSRange range = [calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:_startDate];
-    NSUInteger numberOfDaysInMonth = range.length;
-    
-    // end date will be the last day of the selected month at 23:59:59
-    self.endDate = [_startDate dateByAddingTimeInterval:(3600 * 24 * numberOfDaysInMonth) - 1];
-}
-
-- (IBAction)monthChangedAction:(id)sender
-{
-    [self configureDatesForMonth:_monthPicker.dateValue];
-    
-    if (self.currentClient && self.startDate && self.endDate) {
+    if (self.currentClient) {
         [self updateTasks];
     }
 }
 
 - (void)updateTasks
 {
-    // TODO: consider moving some of this code into a fetched property in the Core Data model
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tasks.date BETWEEN %@",@[_startDate, _endDate]];
-    NSSet *projects = [_currentClient.projects filteredSetUsingPredicate:predicate];
+    // if existing invoice:
+    //  1) select only tasks that are part of the invoice
+    //  2) allow selection of tasks that are not part of any invoice
 
-    NSArray *tasks = @[];
-    for (Project *project in projects) {
-        for (Task *task in project.tasks) {
-            if ([task.date compare:_startDate] == NSOrderedDescending && [task.date compare:_endDate] == NSOrderedAscending) {
-                tasks = [tasks arrayByAddingObject:task];
-            }
-        }
+    // if new invoice:
+    //  1) preselect any tasks not part of any invoice
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Task" inManagedObjectContext:self.objectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error;
+    NSArray *tasks = [self.objectContext executeFetchRequest:request error:&error];
+    if (tasks == nil) {
+        NSAlert *alert = [NSAlert alertWithError:error];
+        [alert runModal];
+        return;
     }
-    self.tasks = tasks;
+
+    NSPredicate *predicate = nil;
+    if (_invoice) {
+        predicate = [NSPredicate predicateWithFormat:@"project.client = %@ AND (invoice = %@ OR invoice = nil)", _currentClient, _invoice];
+        
+        for (Task *task in _invoice.tasks) {
+            [_tasksToAdd addObject:task];
+        }
+    } else {
+        predicate = [NSPredicate predicateWithFormat:@"project.client = %@ AND invoice = nil", _currentClient];
+    }
+    self.tasks = [tasks filteredArrayUsingPredicate:predicate];
     
     [self.tableView reloadData];
 }
@@ -193,19 +188,37 @@
         value = task.name;
     } else if ([tableColumn.identifier isEqualToString:@"hours"]) {
         value = task.hours;
+    } else if ([tableColumn.identifier isEqualToString:@"add"]) {
+        BOOL isChecked = [_tasksToAdd containsObject:task];
+        value = isChecked ? @YES : @NO;
     }
     
     return value;
 }
 
+- (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    if ([tableColumn.identifier isEqualToString:@"add"]) {
+        NSLog(@"%d", [object boolValue]);
+
+        Task *task = [_tasks objectAtIndex:row];
+        
+        if ([_tasksToAdd containsObject:task] == NO) {
+            [_tasksToAdd addObject:task];
+        } else {
+            [_tasksToAdd removeObject:task];
+        }
+    }
+}
+
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row
 {
-    return NO;
+    return YES;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    return NO;
+    return [tableColumn.identifier isEqualToString:@"add"];
 }
 
 @end

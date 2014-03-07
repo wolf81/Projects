@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		79110FFF18C21189007C07CE /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 79110FFE18C21189007C07CE /* Task.m */; };
 		7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100318C21AD7007C07CE /* InvoicesViewController.m */; };
 		7911100618C21AE6007C07CE /* InvoicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911100518C21AE6007C07CE /* InvoicesView.xib */; };
 		7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */; };
 		7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911101218C3626D007C07CE /* EditInvoiceWindow.xib */; };
 		7911101918C36424007C07CE /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101818C36424007C07CE /* Client.m */; };
-		7911101C18C3717C007C07CE /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101B18C3717C007C07CE /* Invoice.m */; };
 		791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */; };
 		791BCCF818C3DB8600F3F553 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */; };
 		79267D7A18BF87770036911D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79267D7918BF87770036911D /* Cocoa.framework */; };
@@ -62,6 +60,8 @@
 		799734CE18C8269100157469 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799734CD18C8269100157469 /* WebKit.framework */; };
 		799734D518C8304900157469 /* WTPDFWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734D418C8304900157469 /* WTPDFWriter.m */; };
 		799734D918C9601200157469 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 799734D818C9601200157469 /* test.html */; };
+		799734DC18C96F2800157469 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734DB18C96F2800157469 /* Invoice.m */; };
+		799734DF18C96F2800157469 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734DE18C96F2800157469 /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +82,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		79110FFD18C21189007C07CE /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		79110FFE18C21189007C07CE /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		7911100218C21AD7007C07CE /* InvoicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoicesViewController.h; sourceTree = "<group>"; };
 		7911100318C21AD7007C07CE /* InvoicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoicesViewController.m; sourceTree = "<group>"; };
 		7911100518C21AE6007C07CE /* InvoicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvoicesView.xib; sourceTree = "<group>"; };
@@ -92,8 +90,6 @@
 		7911101218C3626D007C07CE /* EditInvoiceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInvoiceWindow.xib; sourceTree = "<group>"; };
 		7911101718C36424007C07CE /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		7911101818C36424007C07CE /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
-		7911101A18C3717C007C07CE /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
-		7911101B18C3717C007C07CE /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
 		791BCCF418C3DB7900F3F553 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
@@ -169,6 +165,10 @@
 		799734D318C8304900157469 /* WTPDFWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTPDFWriter.h; sourceTree = "<group>"; };
 		799734D418C8304900157469 /* WTPDFWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTPDFWriter.m; sourceTree = "<group>"; };
 		799734D818C9601200157469 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		799734DA18C96F2800157469 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
+		799734DB18C96F2800157469 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
+		799734DD18C96F2800157469 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		799734DE18C96F2800157469 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,12 +207,12 @@
 		7911100018C21191007C07CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				799734DD18C96F2800157469 /* Task.h */,
+				799734DE18C96F2800157469 /* Task.m */,
+				799734DA18C96F2800157469 /* Invoice.h */,
+				799734DB18C96F2800157469 /* Invoice.m */,
 				7911101718C36424007C07CE /* Client.h */,
 				7911101818C36424007C07CE /* Client.m */,
-				7911101A18C3717C007C07CE /* Invoice.h */,
-				7911101B18C3717C007C07CE /* Invoice.m */,
-				79110FFD18C21189007C07CE /* Task.h */,
-				79110FFE18C21189007C07CE /* Task.m */,
 				797E9B4318C0FA7400E38578 /* Project.h */,
 				797E9B4418C0FA7400E38578 /* Project.m */,
 			);
@@ -612,8 +612,8 @@
 				791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */,
 				797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */,
 				797E9B6018C14E8100E38578 /* EditTaskWindowController.m in Sources */,
+				799734DC18C96F2800157469 /* Invoice.m in Sources */,
 				799734D518C8304900157469 /* WTPDFWriter.m in Sources */,
-				79110FFF18C21189007C07CE /* Task.m in Sources */,
 				797E9B5B18C14DD200E38578 /* TasksViewController.m in Sources */,
 				797E9B2D18C0A7C900E38578 /* ClientsViewController.m in Sources */,
 				797E9B4518C0FA7400E38578 /* Project.m in Sources */,
@@ -621,11 +621,11 @@
 				797E9B3218C0A80F00E38578 /* ProjectsViewController.m in Sources */,
 				7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */,
 				79267D8D18BF87770036911D /* WTAppDelegate.m in Sources */,
+				799734DF18C96F2800157469 /* Task.m in Sources */,
 				797E9B4818C1265400E38578 /* WTTableView.m in Sources */,
 				79267DDE18BFA9AB0036911D /* EditClientWindowController.m in Sources */,
 				797E9B5218C13BEE00E38578 /* WTViewController.m in Sources */,
 				797E9B2A18C079EB00E38578 /* MainWindowController.m in Sources */,
-				7911101C18C3717C007C07CE /* Invoice.m in Sources */,
 				7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */,
 				7911101918C36424007C07CE /* Client.m in Sources */,
 			);
