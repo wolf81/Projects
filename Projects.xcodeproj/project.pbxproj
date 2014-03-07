@@ -61,7 +61,7 @@
 		797E9B6D18C15A4300E38578 /* project.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6C18C15A4300E38578 /* project.png */; };
 		799734CE18C8269100157469 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799734CD18C8269100157469 /* WebKit.framework */; };
 		799734D518C8304900157469 /* WTPDFWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734D418C8304900157469 /* WTPDFWriter.m */; };
-		799734D718C8D36E00157469 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 799734D618C8D36E00157469 /* test.html */; };
+		799734D918C9601200157469 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 799734D818C9601200157469 /* test.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,7 +168,7 @@
 		799734D018C8287D00157469 /* NDHTMLtoPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDHTMLtoPDF.m; sourceTree = "<group>"; };
 		799734D318C8304900157469 /* WTPDFWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTPDFWriter.h; sourceTree = "<group>"; };
 		799734D418C8304900157469 /* WTPDFWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTPDFWriter.m; sourceTree = "<group>"; };
-		799734D618C8D36E00157469 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		799734D818C9601200157469 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,7 +291,7 @@
 		79267D7F18BF87770036911D /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				799734D618C8D36E00157469 /* test.html */,
+				799734D818C9601200157469 /* test.html */,
 				799734D218C8302E00157469 /* Helpers */,
 				799734C918C8263700157469 /* PDF Example */,
 				791BCCF318C3DB6000F3F553 /* Preferences */,
@@ -569,10 +569,10 @@
 				791BCCF818C3DB8600F3F553 /* PreferencesWindow.xib in Resources */,
 				7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */,
 				79267DE018BFA9D10036911D /* EditClientWindow.xib in Resources */,
-				799734D718C8D36E00157469 /* test.html in Resources */,
 				79267D9518BF87770036911D /* Images.xcassets in Resources */,
 				797E9B4218C0F7BA00E38578 /* EditProjectWindow.xib in Resources */,
 				797E9B6918C1592400E38578 /* invoice.png in Resources */,
+				799734D918C9601200157469 /* test.html in Resources */,
 				79267D8A18BF87770036911D /* Credits.rtf in Resources */,
 				797E9B6218C14E9000E38578 /* EditTaskWindow.xib in Resources */,
 				79267DAF18BF87770036911D /* ProjectsImporter.mdimporter in Resources */,

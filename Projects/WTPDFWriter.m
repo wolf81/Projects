@@ -83,11 +83,13 @@
     
     //create our very own NSPrintInfo object with the settings we specified in printInfoDict
     printInfo = [[NSPrintInfo alloc] initWithDictionary: printInfoDict];
-    NSSize paperSize = [printInfo paperSize];
-    NSRect imageableBounds = [printInfo imageablePageBounds];
     [printInfo setHorizontalPagination:NSFitPagination];
     [printInfo setVerticallyCentered:NO];
     [printInfo setHorizontallyCentered:NO];
+
+    /*
+    NSSize paperSize = [printInfo paperSize];
+    NSRect imageableBounds = [printInfo imageablePageBounds];
 
     if (NSWidth(imageableBounds) > paperSize.width) {
         imageableBounds.origin.x = 0;
@@ -103,7 +105,7 @@
     [printInfo setTopMargin:paperSize.height - NSMinY(imageableBounds) - NSHeight(imageableBounds)];
     [printInfo setLeftMargin:NSMinX(imageableBounds)];
     [printInfo setRightMargin:paperSize.width - NSMinX(imageableBounds) - NSWidth(imageableBounds)];
-
+     */
     
     //create the NSPrintOperation object, specifying docView from the previous post as the NSView to print from.
     NSPrintOperation *printOp = [NSPrintOperation printOperationWithView:view printInfo:printInfo];
