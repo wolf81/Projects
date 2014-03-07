@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
+#import "Invoice.h"
 
 
 #define kPaperSizeA4 CGSizeMake(595.2,841.8)
@@ -16,7 +16,7 @@
 
 @interface WTPDFWriter : NSObject
 
-- (id)initWithHTMLString:(NSString *)htmlString pageSize:(CGSize)size;
+- (id)initWithInvoice:(Invoice *)invoice pageSize:(CGSize)pageSize;
 - (void)write;
 
 @end

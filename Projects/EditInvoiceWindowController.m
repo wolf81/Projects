@@ -23,7 +23,7 @@
 @property (nonatomic, copy) NSArray *clients;
 @property (nonatomic, copy) NSArray *tasks;
 @property (nonatomic, strong) Client *currentClient;
-@property (nonatomic, strong) NSMutableArray *tasksToAdd;
+@property (nonatomic, strong) NSMutableArray *invoiceTasks;
 
 - (void)updateTasks;
 
@@ -37,7 +37,7 @@
     self = [super initWithWindowNibName:@"EditInvoiceWindow" context:context];
     if (self) {
         self.invoice = invoice;
-        self.tasksToAdd = [NSMutableArray array];
+        self.invoiceTasks = [NSMutableArray array];
     }
     return self;
 }
@@ -106,8 +106,9 @@
     _invoice.serialNumber = [NSNumber numberWithInt:_serialNumberField.intValue];
     _invoice.taxRate = [NSDecimalNumber decimalNumberWithString:_rateField.stringValue];
 
+    // BUG - needs fixing!
     for (Task *task in _invoice.tasks) {
-        task.invoice = [_tasksToAdd containsObject:task] ? _invoice : nil;
+        task.invoice = [_invoiceTasks containsObject:task] ? _invoice : nil;
     }
     
     NSError *error = nil;
@@ -161,7 +162,7 @@
         predicate = [NSPredicate predicateWithFormat:@"project.client = %@ AND (invoice = %@ OR invoice = nil)", _currentClient, _invoice];
         
         for (Task *task in _invoice.tasks) {
-            [_tasksToAdd addObject:task];
+            [_invoiceTasks addObject:task];
         }
     } else {
         predicate = [NSPredicate predicateWithFormat:@"project.client = %@ AND invoice = nil", _currentClient];
@@ -189,7 +190,7 @@
     } else if ([tableColumn.identifier isEqualToString:@"hours"]) {
         value = task.hours;
     } else if ([tableColumn.identifier isEqualToString:@"add"]) {
-        BOOL isChecked = [_tasksToAdd containsObject:task];
+        BOOL isChecked = [_invoiceTasks containsObject:task];
         value = isChecked ? @YES : @NO;
     }
     
@@ -199,14 +200,12 @@
 - (void)tableView:(NSTableView *)tableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     if ([tableColumn.identifier isEqualToString:@"add"]) {
-        NSLog(@"%d", [object boolValue]);
-
         Task *task = [_tasks objectAtIndex:row];
         
-        if ([_tasksToAdd containsObject:task] == NO) {
-            [_tasksToAdd addObject:task];
+        if ([_invoiceTasks containsObject:task] == NO) {
+            [_invoiceTasks addObject:task];
         } else {
-            [_tasksToAdd removeObject:task];
+            [_invoiceTasks removeObject:task];
         }
     }
 }

@@ -92,16 +92,14 @@
 
 - (void)pdfAction:(id)sender
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"html"];
-    NSError *error = nil;
-    NSString *contents = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+//    NSInteger rowIdx = [_tableView selectedRow];
+//    if (rowIdx == -1) {
+//        return;
+//    }
     
-    if (contents == nil) {
-        NSLog(@"%@", error);
-        return;
-    }
+    Invoice *invoice = [_invoices objectAtIndex:0];
     
-    self.writer = [[WTPDFWriter alloc] initWithHTMLString:contents pageSize:kPaperSizeA4];
+    self.writer = [[WTPDFWriter alloc] initWithInvoice:invoice pageSize:kPaperSizeA4];
     [_writer write];
 }
 

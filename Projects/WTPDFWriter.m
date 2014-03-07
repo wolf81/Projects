@@ -9,6 +9,8 @@
 #import "WTPDFWriter.h"
 #import <WebKit/WebKit.h>
 #import <Quartz/Quartz.h>
+#import "GRMustache.h"
+#import "Client.h"
 
 
 @interface WTPDFWriter ()
@@ -16,7 +18,7 @@
 @property (nonatomic, strong) WebView *webView;
 @property (nonatomic, strong) WebFrameView *webFrameView;
 @property (nonatomic, strong) WebFrame *webFrame;
-@property (nonatomic, strong) NSString *htmlString;
+@property (nonatomic, strong) Invoice *invoice;
 @property (nonatomic, assign) NSEdgeInsets pageMargins;
 @property (nonatomic, assign) CGSize pageSize;
 @property (nonatomic, assign) CGRect paperRect;
@@ -26,12 +28,12 @@
 
 @implementation WTPDFWriter
 
-- (id)initWithHTMLString:(NSString *)htmlString pageSize:(CGSize)pageSize
+- (id)initWithInvoice:(Invoice *)invoice pageSize:(CGSize)pageSize
 {
     self = [super init];
     if (self) {
-        self.htmlString = htmlString;
         self.pageSize = pageSize;
+        self.invoice = invoice;
         
         self.webView = [[WebView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0.0f, 0.0f, pageSize.width, pageSize.height)) frameName:nil groupName:nil];
         _webView.shouldUpdateWhileOffscreen = YES;
@@ -42,12 +44,21 @@
 
 - (void)write
 {
-    [self loadHTML];
-}
-
-- (void)loadHTML
-{
-    [_webView.mainFrame loadHTMLString:_htmlString baseURL:nil];
+    NSError *error = nil;
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"invoice" ofType:@"html" inDirectory:nil];
+    GRMustacheTemplate *template = [GRMustacheTemplate templateFromContentsOfFile:filePath error:&error];
+    if (template == nil) {
+        NSLog(@"%@", error);
+        return;
+    }
+    
+    NSString *renderedDocument = [template renderObject:_invoice error:&error];
+    if (renderedDocument == nil) {
+        NSLog(@"%@", error);
+        return;
+    }
+    
+    [_webView.mainFrame loadHTMLString:renderedDocument baseURL:nil];
 }
 
 #pragma mark - Webview download delegate
