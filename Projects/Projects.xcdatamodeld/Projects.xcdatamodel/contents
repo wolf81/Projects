@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13B42" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Client" representedClassName="Client" syncable="YES">
+    <entity name="Client" representedClassName="Client" parentEntity="Corporation" syncable="YES">
+        <relationship name="invoices" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Invoice" inverseName="client" inverseEntity="Invoice" syncable="YES"/>
+    </entity>
+    <entity name="Company" representedClassName="Company" parentEntity="Corporation" syncable="YES">
+        <attribute name="bankAccount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bankName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cocNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="defaultHourlyRate" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="defaultTaxRate" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="vatNumber" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Corporation" representedClassName="Corporation" isAbstract="YES" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,19 +19,18 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="invoices" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Invoice" inverseName="client" inverseEntity="Invoice" syncable="YES"/>
-        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Project" inverseName="client" inverseEntity="Project" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Project" inverseName="corporation" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Invoice" representedClassName="Invoice" syncable="YES">
+        <attribute name="invoiceNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="issueDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="serialNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="taxRate" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="client" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="invoices" inverseEntity="Client" syncable="YES"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="invoice" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="client" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="projects" inverseEntity="Client" syncable="YES"/>
+        <relationship name="corporation" maxCount="1" deletionRule="Nullify" destinationEntity="Corporation" inverseName="projects" inverseEntity="Corporation" syncable="YES"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Deny" destinationEntity="Task" inverseName="project" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
@@ -33,9 +43,11 @@
         <relationship name="project" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="tasks" inverseEntity="Project" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="-9" positionY="69" width="128" height="178"/>
+        <element name="Client" positionX="-45" positionY="74" width="128" height="58"/>
+        <element name="Corporation" positionX="151" positionY="18" width="128" height="163"/>
         <element name="Invoice" positionX="-290" positionY="189" width="128" height="118"/>
         <element name="Project" positionX="-18" positionY="-117" width="128" height="90"/>
         <element name="Task" positionX="-308" positionY="-90" width="128" height="148"/>
+        <element name="Company" positionX="-126" positionY="72" width="128" height="103"/>
     </elements>
 </model>

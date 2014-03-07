@@ -1,17 +1,16 @@
 //
-//  Client.m
+//  Corporation.m
 //  Projects
 //
-//  Created by Wolfgang Schreurs on 02/03/14.
+//  Created by Wolfgang Schreurs on 07-03-14.
 //  Copyright (c) 2014 Wolftrail. All rights reserved.
 //
 
-#import "Client.h"
-#import "Invoice.h"
+#import "Corporation.h"
 #import "Project.h"
 
 
-@implementation Client
+@implementation Corporation
 
 @dynamic address;
 @dynamic city;
@@ -21,6 +20,5 @@
 @dynamic phone;
 @dynamic zip;
 @dynamic projects;
-@dynamic invoices;
 
 @end

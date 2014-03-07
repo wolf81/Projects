@@ -117,7 +117,7 @@
     id value = nil;
     
     if ([tableColumn.identifier isEqualToString:@"serialNumber"]) {
-        value = invoice.serialNumber;
+        value = invoice.invoiceNumber;
     } else if ([tableColumn.identifier isEqualToString:@"client"]) {
         value = invoice.client.name;
     } else if ([tableColumn.identifier isEqualToString:@"date"]) {

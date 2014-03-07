@@ -15,11 +15,11 @@
         <customObject id="-3" userLabel="Application"/>
         <window title="Projects" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <rect key="contentRect" x="341" y="317" width="640" height="480"/>
+            <rect key="contentRect" x="341" y="317" width="640" height="520"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1002"/>
-            <value key="minSize" type="size" width="640" height="480"/>
+            <value key="minSize" type="size" width="640" height="520"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="640" height="480"/>
+                <rect key="frame" x="0.0" y="0.0" width="640" height="520"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="F780528F-BC0D-431C-AADA-25D75816936E" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="0uJ-fL-TL4">

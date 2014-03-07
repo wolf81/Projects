@@ -8,12 +8,13 @@
 
 #import "ClientsViewController.h"
 #import "Client.h"
+#import "Company.h"
 #import "EditClientWindowController.h"
 
 
 @interface ClientsViewController ()
 
-@property (nonatomic, copy) NSArray *clients;
+@property (nonatomic, copy) NSArray *corporations;
 @property (nonatomic, assign) BOOL editEnabled;
 
 - (void)updateClientInfoForSelectedRow:(NSInteger)rowIndex;
@@ -35,7 +36,7 @@
 
 - (void)reloadData
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:self.objectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Corporation" inManagedObjectContext:self.objectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
@@ -45,10 +46,10 @@
         NSAlert *alert = [NSAlert alertWithError:error];
         [alert runModal];
     } else {
-        self.clients = array;
+        self.corporations = array;
         [_tableView reloadData];
         
-        if (_clients.count > 0) {
+        if (_corporations.count > 0) {
             NSIndexSet *selectedRow = [NSIndexSet indexSetWithIndex:0];
             [_tableView selectRowIndexes:selectedRow byExtendingSelection:NO];
             [self updateClientInfoForSelectedRow:0];
@@ -69,19 +70,20 @@
 
 - (void)editAction:(id)sender
 {
-    Client *client = _clients[_tableView.selectedRow];
+    Corporation *corporation = _corporations[_tableView.selectedRow];
     EditClientWindowController *windowController = [[EditClientWindowController alloc]
-                                                    initWithClient:client
-                                                    context:self.objectContext];
+                                                    initWithCorporation:corporation
+                                                    context:self.objectContext
+                                                    isClient:YES];
     [windowController presentSheet:self.view.window];
     [self reloadData];
 }
 
 - (void)deleteAction:(id)sender
 {
-    Client *client = _clients[_tableView.selectedRow];
+    Corporation *corporation = _corporations[_tableView.selectedRow];
 
-    if (client.projects.count > 0) {
+    if (corporation.projects.count > 0) {
         NSAlert *alert = [NSAlert
                           alertWithMessageText:@"Cannot delete client."
                           defaultButton:@"OK"
@@ -92,7 +94,7 @@
         return;
     }
     
-    [self.objectContext deleteObject:client];
+    [self.objectContext deleteObject:corporation];
     
     NSError *error = nil;
     BOOL success = [self.objectContext save:&error];
@@ -107,8 +109,9 @@
 - (IBAction)addAction:(id)sender
 {
     EditClientWindowController *windowController = [[EditClientWindowController alloc]
-                                                    initWithClient:nil
-                                                    context:self.objectContext];
+                                                    initWithCorporation:nil
+                                                    context:self.objectContext
+                                                    isClient:YES];
     [windowController presentSheet:self.view.window];
     [self reloadData];
 }
@@ -117,26 +120,31 @@
 
 - (void)updateClientInfoForSelectedRow:(NSInteger)rowIndex
 {
-    Client *client = _clients[rowIndex];
+    Corporation *corporation = _corporations[rowIndex];
     
-    _zipField.stringValue = client.zip;
-    _cityField.stringValue = client.city;
-    _addressField.stringValue = client.address;
-    _emailField.stringValue = client.email;
-    _countryField.stringValue = client.country;
+    _zipField.stringValue = corporation.zip;
+    _cityField.stringValue = corporation.city;
+    _addressField.stringValue = corporation.address;
+    _emailField.stringValue = corporation.email;
+    _countryField.stringValue = corporation.country;
+    
+    BOOL showCompanyDetails = [corporation isKindOfClass:[Company class]];
+    if (showCompanyDetails) {
+        NSLog(@"show extended company details ...");
+    }
 }
 
 #pragma mark - Table view
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
-    return _clients.count;
+    return _corporations.count;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    Client *client = [_clients objectAtIndex:row];
-    return client.name;
+    Corporation *corporation = [_corporations objectAtIndex:row];
+    return corporation.name;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldSelectRow:(NSInteger)row

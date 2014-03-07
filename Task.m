@@ -2,7 +2,7 @@
 //  Task.m
 //  Projects
 //
-//  Created by Wolfgang Schreurs on 07/03/14.
+//  Created by Wolfgang Schreurs on 07-03-14.
 //  Copyright (c) 2014 Wolftrail. All rights reserved.
 //
 
@@ -18,7 +18,7 @@
 @dynamic information;
 @dynamic name;
 @dynamic rate;
-@dynamic project;
 @dynamic invoice;
+@dynamic project;
 
 @end

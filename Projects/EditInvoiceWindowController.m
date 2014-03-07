@@ -54,7 +54,7 @@
 
 - (void)reloadData
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:self.objectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Corporation" inManagedObjectContext:self.objectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
@@ -103,7 +103,7 @@
     Client *client =_clients[clientIdx];
     
     _invoice.client = client;
-    _invoice.serialNumber = [NSNumber numberWithInt:_serialNumberField.intValue];
+    _invoice.invoiceNumber = [NSNumber numberWithInt:_serialNumberField.intValue];
     _invoice.taxRate = [NSDecimalNumber decimalNumberWithString:_rateField.stringValue];
     _invoice.issueDate = [NSDate date];
 
@@ -166,13 +166,13 @@
 
     NSPredicate *predicate = nil;
     if (_invoice) {
-        predicate = [NSPredicate predicateWithFormat:@"project.client = %@ AND (invoice = %@ OR invoice = nil)", _currentClient, _invoice];
+        predicate = [NSPredicate predicateWithFormat:@"project.corporation = %@ AND (invoice = %@ OR invoice = nil)", _currentClient, _invoice];
         
         for (Task *task in _invoice.tasks) {
             [_invoiceTasks addObject:task];
         }
     } else {
-        predicate = [NSPredicate predicateWithFormat:@"project.client = %@ AND invoice = nil", _currentClient];
+        predicate = [NSPredicate predicateWithFormat:@"project.corporation = %@ AND invoice = nil", _currentClient];
     }
     self.tasks = [tasks filteredArrayUsingPredicate:predicate];
     

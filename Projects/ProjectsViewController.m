@@ -109,7 +109,7 @@
 {
     Project *project = [_projects objectAtIndex:row];
 
-    return [tableColumn.identifier isEqualToString:@"project"] ? project.name : project.client.name;
+    return [tableColumn.identifier isEqualToString:@"project"] ? project.name : project.corporation.name;
 }
 
 - (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row

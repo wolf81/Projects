@@ -11,6 +11,8 @@
 #import "ClientsViewController.h"
 #import "TasksViewController.h"
 #import "InvoicesViewController.h"
+#import "EditClientWindowController.h"
+#import "Company.h"
 
 
 @interface MainWindowController ()
@@ -20,6 +22,8 @@
 @property (nonatomic, strong) ProjectsViewController *projectsViewController;
 @property (nonatomic, strong) TasksViewController *tasksViewController;
 @property (nonatomic, strong) InvoicesViewController *invoicesViewController;
+
+- (Company *)currentCompany;
 
 @end
 
@@ -32,6 +36,26 @@
     
     [self.toolbar setSelectedItemIdentifier:@"tasks"];
     [self tasksAction:nil];
+    
+    Company *company = [self currentCompany];
+    if (company == nil) {
+        EditClientWindowController *windowController = [[EditClientWindowController alloc]
+                                                        initWithCorporation:nil
+                                                        context:self.objectContext
+                                                        isClient:NO];
+        [windowController presentSheet:self.window];
+    }
+}
+
+- (Company *)currentCompany
+{
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Company" inManagedObjectContext:self.objectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+
+    NSError *error;
+    NSArray *array = [self.objectContext executeFetchRequest:request error:&error];
+    return (array == nil || array.count == 0) ? nil : array[0];
 }
 
 #pragma mark - Actions

@@ -22,6 +22,8 @@
 - (IBAction)saveAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;
 
-- (id)initWithClient:(Client *)client context:(NSManagedObjectContext *)context;
+- (id)initWithCorporation:(Corporation *)corporation
+                  context:(NSManagedObjectContext *)context
+                isClient:(BOOL)isClient;
 
 @end

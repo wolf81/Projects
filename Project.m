@@ -2,18 +2,19 @@
 //  Project.m
 //  Projects
 //
-//  Created by Wolfgang Schreurs on 28/02/14.
+//  Created by Wolfgang Schreurs on 07-03-14.
 //  Copyright (c) 2014 Wolftrail. All rights reserved.
 //
 
 #import "Project.h"
-#import "Client.h"
+#import "Corporation.h"
+#import "Task.h"
 
 
 @implementation Project
 
 @dynamic name;
-@dynamic client;
+@dynamic corporation;
 @dynamic tasks;
 
 @end

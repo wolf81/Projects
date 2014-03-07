@@ -7,23 +7,28 @@
 //
 
 #import "EditClientWindowController.h"
+#import "Company.h"
 
 
 @interface EditClientWindowController ()
 
-@property (nonatomic, strong) Client *client;
+@property (nonatomic, strong) Corporation *corporation;
+@property (nonatomic, assign) BOOL isClient;
 
 @end
 
 
 @implementation EditClientWindowController
 
-- (id)initWithClient:(Client *)client context:(NSManagedObjectContext *)context
+- (id)initWithCorporation:(Corporation *)corporation
+                  context:(NSManagedObjectContext *)context
+                 isClient:(BOOL)isClient
 {
     self = [super initWithWindowNibName:@"EditClientWindow" context:context];
     if (self)
     {
-        self.client = client;
+        self.corporation = corporation;
+        self.isClient = isClient;
     }
     return self;
 }
@@ -32,29 +37,33 @@
 {
     [super windowDidLoad];
     
-    if (self.client != nil) {
-        _nameField.stringValue = _client.name;
-        _addressField.stringValue = _client.address;
-        _zipField.stringValue = _client.zip;
-        _cityField.stringValue = _client.city;
-        _emailField.stringValue = _client.email;
-        _countryField.stringValue = _client.country;
+    if (self.corporation != nil) {
+        _nameField.stringValue = _corporation.name;
+        _addressField.stringValue = _corporation.address;
+        _zipField.stringValue = _corporation.zip;
+        _cityField.stringValue = _corporation.city;
+        _emailField.stringValue = _corporation.email;
+        _countryField.stringValue = _corporation.country;
     }
 }
 
 - (IBAction)saveAction:(id)sender
 {
-    if (_client == nil) // insert
+    if (_corporation == nil) // insert
     {
-        self.client = (Client *) [NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:self.objectContext];
+        if (_isClient) {
+            self.corporation = (Client *) [NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:self.objectContext];
+        } else {
+            self.corporation = (Company *) [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:self.objectContext];
+        }
     }
 
-    _client.name = [_nameField stringValue];
-    _client.address = [_addressField stringValue];
-    _client.zip = [_zipField stringValue];
-    _client.city = [_cityField stringValue];
-    _client.email = [_emailField stringValue];
-    _client.country = [_countryField stringValue];
+    _corporation.name = [_nameField stringValue];
+    _corporation.address = [_addressField stringValue];
+    _corporation.zip = [_zipField stringValue];
+    _corporation.city = [_cityField stringValue];
+    _corporation.email = [_emailField stringValue];
+    _corporation.country = [_countryField stringValue];
         
     NSError *error = nil;
     BOOL success = [self.objectContext save:&error];

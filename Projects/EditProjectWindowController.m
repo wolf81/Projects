@@ -39,7 +39,7 @@
         _projectNameField.stringValue = _project.name;
 
         for (NSMenuItem *menuItem in _clientsPopUpButton.itemArray) {
-            if ([menuItem.representedObject isEqual:_project.client]) {
+            if ([menuItem.representedObject isEqual:_project.corporation]) {
                 [_clientsPopUpButton selectItem:menuItem];
                 break;
             }
@@ -51,7 +51,7 @@
 
 - (void)reloadData
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:self.objectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Corporation" inManagedObjectContext:self.objectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
@@ -83,10 +83,10 @@
     }
     
     NSInteger clientIdx = [_clientsPopUpButton indexOfSelectedItem];
-    Client *client =_clients[clientIdx];
+    Corporation *client =_clients[clientIdx];
     
     _project.name = [_projectNameField stringValue];
-    _project.client = client;
+    _project.corporation = client;
     
     NSError *error = nil;
     BOOL success = [self.objectContext save:&error];

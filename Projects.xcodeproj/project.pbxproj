@@ -11,7 +11,6 @@
 		7911100618C21AE6007C07CE /* InvoicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911100518C21AE6007C07CE /* InvoicesView.xib */; };
 		7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */; };
 		7911101318C3626D007C07CE /* EditInvoiceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7911101218C3626D007C07CE /* EditInvoiceWindow.xib */; };
-		7911101918C36424007C07CE /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 7911101818C36424007C07CE /* Client.m */; };
 		791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */; };
 		791BCCF818C3DB8600F3F553 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */; };
 		79267D7A18BF87770036911D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79267D7918BF87770036911D /* Cocoa.framework */; };
@@ -45,7 +44,6 @@
 		797E9B3418C0A81D00E38578 /* ProjectsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B3318C0A81D00E38578 /* ProjectsView.xib */; };
 		797E9B4018C0F7A800E38578 /* EditProjectWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B3F18C0F7A800E38578 /* EditProjectWindowController.m */; };
 		797E9B4218C0F7BA00E38578 /* EditProjectWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B4118C0F7BA00E38578 /* EditProjectWindow.xib */; };
-		797E9B4518C0FA7400E38578 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B4418C0FA7400E38578 /* Project.m */; };
 		797E9B4818C1265400E38578 /* WTTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B4718C1265400E38578 /* WTTableView.m */; };
 		797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B4D18C137B400E38578 /* WTWindowController.m */; };
 		797E9B5218C13BEE00E38578 /* WTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 797E9B5118C13BEE00E38578 /* WTViewController.m */; };
@@ -57,16 +55,20 @@
 		797E9B6918C1592400E38578 /* invoice.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6818C1592400E38578 /* invoice.png */; };
 		797E9B6B18C1595A00E38578 /* client.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6A18C1595A00E38578 /* client.png */; };
 		797E9B6D18C15A4300E38578 /* project.png in Resources */ = {isa = PBXBuildFile; fileRef = 797E9B6C18C15A4300E38578 /* project.png */; };
+		79969C7018CA7D9500C447DA /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 79969C6F18CA7D9500C447DA /* Invoice.m */; };
+		79969C7918CA89BA00C447DA /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 79969C7818CA89BA00C447DA /* Company.m */; };
 		799734CE18C8269100157469 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 799734CD18C8269100157469 /* WebKit.framework */; };
 		799734D518C8304900157469 /* WTPDFWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734D418C8304900157469 /* WTPDFWriter.m */; };
 		799734D918C9601200157469 /* invoice.html in Resources */ = {isa = PBXBuildFile; fileRef = 799734D818C9601200157469 /* invoice.html */; };
-		799734DC18C96F2800157469 /* Invoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734DB18C96F2800157469 /* Invoice.m */; };
-		799734DF18C96F2800157469 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734DE18C96F2800157469 /* Task.m */; };
 		799734E118CA22DC00157469 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 799734E018CA22DC00157469 /* README.md */; };
 		799734E318CA230F00157469 /* libGRMustache6-MacOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 799734E218CA230F00157469 /* libGRMustache6-MacOS.a */; };
 		799734F818CA24B600157469 /* WTInvoiceDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 799734F718CA24B600157469 /* WTInvoiceDocument.m */; };
 		79CC01A118CA4AC100560B7B /* Project+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CC01A018CA4AC100560B7B /* Project+Helper.m */; };
 		79CC01A418CA579B00560B7B /* Invoice+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CC01A318CA579B00560B7B /* Invoice+Helper.m */; };
+		79F5A98A18CA79A2008523B1 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A98918CA79A2008523B1 /* Task.m */; };
+		79F5A98D18CA79A2008523B1 /* Corporation.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A98C18CA79A2008523B1 /* Corporation.m */; };
+		79F5A99318CA79A2008523B1 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A99218CA79A2008523B1 /* Project.m */; };
+		79F5A99618CA79A2008523B1 /* Client.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5A99518CA79A2008523B1 /* Client.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +95,6 @@
 		7911100C18C35F3F007C07CE /* EditInvoiceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInvoiceWindowController.h; sourceTree = "<group>"; };
 		7911100D18C35F3F007C07CE /* EditInvoiceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInvoiceWindowController.m; sourceTree = "<group>"; };
 		7911101218C3626D007C07CE /* EditInvoiceWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInvoiceWindow.xib; sourceTree = "<group>"; };
-		7911101718C36424007C07CE /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
-		7911101818C36424007C07CE /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Client.m; sourceTree = "<group>"; };
 		791BCCF418C3DB7900F3F553 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
 		791BCCF518C3DB7900F3F553 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
 		791BCCF718C3DB8600F3F553 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
@@ -146,8 +146,6 @@
 		797E9B3E18C0F7A800E38578 /* EditProjectWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProjectWindowController.h; sourceTree = "<group>"; };
 		797E9B3F18C0F7A800E38578 /* EditProjectWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProjectWindowController.m; sourceTree = "<group>"; };
 		797E9B4118C0F7BA00E38578 /* EditProjectWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProjectWindow.xib; sourceTree = "<group>"; };
-		797E9B4318C0FA7400E38578 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
-		797E9B4418C0FA7400E38578 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		797E9B4618C1265400E38578 /* WTTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTableView.h; sourceTree = "<group>"; };
 		797E9B4718C1265400E38578 /* WTTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTableView.m; sourceTree = "<group>"; };
 		797E9B4C18C137B400E38578 /* WTWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTWindowController.h; sourceTree = "<group>"; };
@@ -164,14 +162,14 @@
 		797E9B6818C1592400E38578 /* invoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invoice.png; sourceTree = "<group>"; };
 		797E9B6A18C1595A00E38578 /* client.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = client.png; sourceTree = "<group>"; };
 		797E9B6C18C15A4300E38578 /* project.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = project.png; sourceTree = "<group>"; };
+		79969C6E18CA7D9500C447DA /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Invoice.h; path = ../Invoice.h; sourceTree = "<group>"; };
+		79969C6F18CA7D9500C447DA /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Invoice.m; path = ../Invoice.m; sourceTree = "<group>"; };
+		79969C7718CA89BA00C447DA /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
+		79969C7818CA89BA00C447DA /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
 		799734CD18C8269100157469 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		799734D318C8304900157469 /* WTPDFWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTPDFWriter.h; sourceTree = "<group>"; };
 		799734D418C8304900157469 /* WTPDFWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTPDFWriter.m; sourceTree = "<group>"; };
 		799734D818C9601200157469 /* invoice.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = invoice.html; sourceTree = "<group>"; };
-		799734DA18C96F2800157469 /* Invoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoice.h; sourceTree = "<group>"; };
-		799734DB18C96F2800157469 /* Invoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Invoice.m; sourceTree = "<group>"; };
-		799734DD18C96F2800157469 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
-		799734DE18C96F2800157469 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		799734E018CA22DC00157469 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		799734E218CA230F00157469 /* libGRMustache6-MacOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGRMustache6-MacOS.a"; sourceTree = "<group>"; };
 		799734E518CA232900157469 /* GRMustache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRMustache.h; sourceTree = "<group>"; };
@@ -196,6 +194,14 @@
 		79CC01A018CA4AC100560B7B /* Project+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Project+Helper.m"; sourceTree = "<group>"; };
 		79CC01A218CA579B00560B7B /* Invoice+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Invoice+Helper.h"; sourceTree = "<group>"; };
 		79CC01A318CA579B00560B7B /* Invoice+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Invoice+Helper.m"; sourceTree = "<group>"; };
+		79F5A98818CA79A2008523B1 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = ../Task.h; sourceTree = "<group>"; };
+		79F5A98918CA79A2008523B1 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = ../Task.m; sourceTree = "<group>"; };
+		79F5A98B18CA79A2008523B1 /* Corporation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Corporation.h; path = ../Corporation.h; sourceTree = "<group>"; };
+		79F5A98C18CA79A2008523B1 /* Corporation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Corporation.m; path = ../Corporation.m; sourceTree = "<group>"; };
+		79F5A99118CA79A2008523B1 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = ../Project.h; sourceTree = "<group>"; };
+		79F5A99218CA79A2008523B1 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = ../Project.m; sourceTree = "<group>"; };
+		79F5A99418CA79A2008523B1 /* Client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Client.h; path = ../Client.h; sourceTree = "<group>"; };
+		79F5A99518CA79A2008523B1 /* Client.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Client.m; path = ../Client.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,14 +241,18 @@
 		7911100018C21191007C07CE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				799734DD18C96F2800157469 /* Task.h */,
-				799734DE18C96F2800157469 /* Task.m */,
-				799734DA18C96F2800157469 /* Invoice.h */,
-				799734DB18C96F2800157469 /* Invoice.m */,
-				7911101718C36424007C07CE /* Client.h */,
-				7911101818C36424007C07CE /* Client.m */,
-				797E9B4318C0FA7400E38578 /* Project.h */,
-				797E9B4418C0FA7400E38578 /* Project.m */,
+				79969C7718CA89BA00C447DA /* Company.h */,
+				79969C7818CA89BA00C447DA /* Company.m */,
+				79969C6E18CA7D9500C447DA /* Invoice.h */,
+				79969C6F18CA7D9500C447DA /* Invoice.m */,
+				79F5A99418CA79A2008523B1 /* Client.h */,
+				79F5A99518CA79A2008523B1 /* Client.m */,
+				79F5A99118CA79A2008523B1 /* Project.h */,
+				79F5A99218CA79A2008523B1 /* Project.m */,
+				79F5A98B18CA79A2008523B1 /* Corporation.h */,
+				79F5A98C18CA79A2008523B1 /* Corporation.m */,
+				79F5A98818CA79A2008523B1 /* Task.h */,
+				79F5A98918CA79A2008523B1 /* Task.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -321,15 +331,15 @@
 		79267D7F18BF87770036911D /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				79CC019E18CA4AA300560B7B /* Categories */,
 				799734D818C9601200157469 /* invoice.html */,
+				79CC019E18CA4AA300560B7B /* Categories */,
 				799734F518CA235300157469 /* Dependencies */,
+				797E9B4F18C13B6F00E38578 /* Base */,
 				799734D218C8302E00157469 /* Helpers */,
-				791BCCF318C3DB6000F3F553 /* Preferences */,
 				7911100018C21191007C07CE /* Models */,
 				797E9B5618C13DF700E38578 /* Resources */,
+				791BCCF318C3DB6000F3F553 /* Preferences */,
 				797E9B5718C14D1A00E38578 /* Startup */,
-				797E9B4F18C13B6F00E38578 /* Base */,
 				7911100118C21AB9007C07CE /* Invoices */,
 				797E9B5318C13DCD00E38578 /* Clients */,
 				797E9B5418C13DD400E38578 /* Projects */,
@@ -678,27 +688,29 @@
 				79267D8618BF87770036911D /* main.m in Sources */,
 				797E9B4018C0F7A800E38578 /* EditProjectWindowController.m in Sources */,
 				791BCCF618C3DB7900F3F553 /* PreferencesWindowController.m in Sources */,
+				79F5A99318CA79A2008523B1 /* Project.m in Sources */,
 				79CC01A418CA579B00560B7B /* Invoice+Helper.m in Sources */,
 				799734F818CA24B600157469 /* WTInvoiceDocument.m in Sources */,
 				797E9B4E18C137B400E38578 /* WTWindowController.m in Sources */,
 				797E9B6018C14E8100E38578 /* EditTaskWindowController.m in Sources */,
-				799734DC18C96F2800157469 /* Invoice.m in Sources */,
+				79F5A98A18CA79A2008523B1 /* Task.m in Sources */,
 				799734D518C8304900157469 /* WTPDFWriter.m in Sources */,
 				797E9B5B18C14DD200E38578 /* TasksViewController.m in Sources */,
 				797E9B2D18C0A7C900E38578 /* ClientsViewController.m in Sources */,
-				797E9B4518C0FA7400E38578 /* Project.m in Sources */,
 				79267D9318BF87770036911D /* Projects.xcdatamodeld in Sources */,
+				79F5A99618CA79A2008523B1 /* Client.m in Sources */,
 				797E9B3218C0A80F00E38578 /* ProjectsViewController.m in Sources */,
 				7911100E18C35F3F007C07CE /* EditInvoiceWindowController.m in Sources */,
 				79267D8D18BF87770036911D /* WTAppDelegate.m in Sources */,
-				799734DF18C96F2800157469 /* Task.m in Sources */,
 				79CC01A118CA4AC100560B7B /* Project+Helper.m in Sources */,
+				79F5A98D18CA79A2008523B1 /* Corporation.m in Sources */,
 				797E9B4818C1265400E38578 /* WTTableView.m in Sources */,
 				79267DDE18BFA9AB0036911D /* EditClientWindowController.m in Sources */,
 				797E9B5218C13BEE00E38578 /* WTViewController.m in Sources */,
+				79969C7018CA7D9500C447DA /* Invoice.m in Sources */,
+				79969C7918CA89BA00C447DA /* Company.m in Sources */,
 				797E9B2A18C079EB00E38578 /* MainWindowController.m in Sources */,
 				7911100418C21AD7007C07CE /* InvoicesViewController.m in Sources */,
-				7911101918C36424007C07CE /* Client.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
