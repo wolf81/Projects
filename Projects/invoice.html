@@ -46,8 +46,8 @@
 		</div>
 		<div><br/></div>
 		<div align="right">
-			<div>Factuurnummer: 2014003</div>
-			<div>Factuurdatum: 25 februari 2014</div>			
+			<div>Factuurnummer: {{invoice.serialNumber}}</div>
+			<div>Factuurdatum: {{#dateFormat}} {{invoice.issueDate}} {{/dateFormat}}</div>
 		</div>
 		<div><br/></div>
 		<div>
@@ -58,11 +58,13 @@
 					<th></th>
 					<th>Factuurbedrag</th>					
 				</tr>
+                {{#projects}}
 				<tr>
-					<td>Oplevering Moet Ik Rennen webservices</td>
+					<td>{{.name}}</td>
 					<td></td>
-					<td>&euro;2000</td>					
+					<td>&euro;{{.totalCost}}</td>
 				</tr>
+                {{/projects}}
 				<tr>
 					<td></td>
 					<td>BTW 21%</td>
@@ -76,9 +78,9 @@
 				<tr>
 					<td></td>
 					<td>Totaal</td>
-					<td>&euro;2420</td>					
+					<td>&euro;{{invoice.totalCost}}</td>
 				</tr>
-			</table>			
+			</table>
 		</div>
 		<div>
 			<br/><br/>

@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import <Quartz/Quartz.h>
 #import "GRMustache.h"
-#import "Client.h"
+#import "WTInvoiceDocument.h"
 
 
 @interface WTPDFWriter ()
@@ -52,7 +52,11 @@
         return;
     }
     
-    NSString *renderedDocument = [template renderObject:_invoice error:&error];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    dateFormat.dateStyle = NSDateFormatterLongStyle;
+    
+    WTInvoiceDocument *document = [[WTInvoiceDocument alloc] initWithInvoice:_invoice];
+    NSString *renderedDocument = [template renderObjectsFromArray:@[document, dateFormat] error:&error];
     if (renderedDocument == nil) {
         NSLog(@"%@", error);
         return;

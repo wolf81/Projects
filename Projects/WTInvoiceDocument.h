@@ -7,7 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Invoice.h"
+#import "Project.h"
+#import "Client.h"
+#import "GRMustache.h"
+
 
 @interface WTInvoiceDocument : NSObject
+
+- (id)initWithInvoice:(Invoice *)invoice;
+
+@property (nonatomic, readonly) Invoice *invoice;
+@property (nonatomic, readonly) Client *client;
+@property (nonatomic, readonly) NSArray *projects;
 
 @end

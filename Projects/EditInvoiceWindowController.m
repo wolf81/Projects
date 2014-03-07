@@ -105,10 +105,17 @@
     _invoice.client = client;
     _invoice.serialNumber = [NSNumber numberWithInt:_serialNumberField.intValue];
     _invoice.taxRate = [NSDecimalNumber decimalNumberWithString:_rateField.stringValue];
+    _invoice.issueDate = [NSDate date];
 
     // BUG - needs fixing!
     for (Task *task in _invoice.tasks) {
         task.invoice = [_invoiceTasks containsObject:task] ? _invoice : nil;
+    }
+    
+    for (Task *task in _invoiceTasks) {
+        if ([_invoice.tasks containsObject:task] == NO) {
+            task.invoice = _invoice;
+        }
     }
     
     NSError *error = nil;

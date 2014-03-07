@@ -17,6 +17,7 @@
 @property (nonatomic, strong) IBOutlet NSTextView *infoView;
 @property (nonatomic, strong) IBOutlet NSTextField *timeField;
 @property (nonatomic, strong) IBOutlet NSDatePicker *datePicker;
+@property (nonatomic, strong) IBOutlet NSTextField *rateField;
 
 - (IBAction)saveAction:(id)sender;
 - (IBAction)cancelAction:(id)sender;

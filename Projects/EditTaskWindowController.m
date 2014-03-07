@@ -43,6 +43,7 @@
         _datePicker.dateValue = _task.date;
         _infoView.string = _task.information;
         _timeField.intValue = _task.hours.intValue;
+        _rateField.stringValue = _task.rate.stringValue;
         
         for (NSMenuItem *menuItem in _projectsPopUpButton.itemArray) {
             if ([menuItem.representedObject isEqual:_task.project]) {
@@ -94,6 +95,7 @@
     _task.date = [_datePicker dateValue];
     _task.hours = [NSNumber numberWithInt:_timeField.intValue];
     _task.project = project;
+    _task.rate = [NSDecimalNumber decimalNumberWithString:_rateField.stringValue];
     
     NSError *error = nil;
     BOOL success = [self.objectContext save:&error];

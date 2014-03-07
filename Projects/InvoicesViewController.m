@@ -120,6 +120,8 @@
         value = invoice.serialNumber;
     } else if ([tableColumn.identifier isEqualToString:@"client"]) {
         value = invoice.client.name;
+    } else if ([tableColumn.identifier isEqualToString:@"date"]) {
+        value = invoice.issueDate;
     }
     
     return value;
