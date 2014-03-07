@@ -10,6 +10,7 @@
 #import "Invoice.h"
 #import "Project.h"
 #import "Client.h"
+#import "Company.h"
 #import "GRMustache.h"
 
 
@@ -20,5 +21,6 @@
 @property (nonatomic, readonly) Invoice *invoice;
 @property (nonatomic, readonly) Client *client;
 @property (nonatomic, readonly) NSArray *projects;
+@property (nonatomic, strong) Company *company;
 
 @end

@@ -27,16 +27,18 @@
 	</head>
 	<body>
 		<div align="right">
-			<div><b>Wolftrail</b></div>
-			<div>Toulonselaan 145</div>
-			<div>3311 LT Dordrecht</div>
-			<div>T 06 25 45 83 95</div>
-			<div>info@wolftrail.net</div>
+			<div><b>{{ company.name }}</b></div>
+			<div>{{ company.address }}</div>
+			<div>{{ company.zip }} {{ company.city }}</div>
+			<div>T {{ company.phone }}</div>
+			<div>{{ company.email }}</div>
+            <!--
 			<div>BTW-nummer: NL104336870B92</div>
 			<div><br/></div>
 			<div>Bank: ABN AMRO</div>
 			<div>IBAN: NL97 ABNA 0575007033</div>
 			<div>KvK: 59844221</div>		
+             -->
 		</div>
 		<div><br/></div>		
 		<div>

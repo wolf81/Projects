@@ -9,6 +9,7 @@
 #import "InvoicesViewController.h"
 #import "EditInvoiceWindowController.h"
 #import "Client.h"
+#import "Company.h"
 
 #import "WTPDFWriter.h"
 
@@ -51,6 +52,26 @@
             [_tableView selectRowIndexes:selectedRow byExtendingSelection:NO];
         }
     }
+}
+
+- (Company *)company
+{
+    Company *company = nil;
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Company" inManagedObjectContext:self.objectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSError *error;
+    NSArray *array = [self.objectContext executeFetchRequest:request error:&error];
+    if (array == nil) {
+        NSAlert *alert = [NSAlert alertWithError:error];
+        [alert runModal];
+    } else if (array.count > 0) {
+        company = array[0];
+    }
+    
+    return company;
 }
 
 #pragma mark - Actions 
@@ -99,7 +120,7 @@
     
     Invoice *invoice = [_invoices objectAtIndex:0];
     
-    self.writer = [[WTPDFWriter alloc] initWithInvoice:invoice pageSize:kPaperSizeA4];
+    self.writer = [[WTPDFWriter alloc] initWithCompany:[self company] invoice:invoice pageSize:kPaperSizeA4];
     [_writer write];
 }
 

@@ -67,7 +67,7 @@ DQ
                             <menu key="menu" title="OtherViews" id="pzb-85-uqP"/>
                         </popUpButtonCell>
                         <connections>
-                            <outlet property="nextKeyView" destination="zRW-kC-ltb" id="B44-W3-ham"/>
+                            <outlet property="nextKeyView" destination="zRW-kC-ltb" id="mbR-Re-0zX"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FDW-Ei-Lvu">

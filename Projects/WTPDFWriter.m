@@ -19,6 +19,7 @@
 @property (nonatomic, strong) WebFrameView *webFrameView;
 @property (nonatomic, strong) WebFrame *webFrame;
 @property (nonatomic, strong) Invoice *invoice;
+@property (nonatomic, strong) Company *company;
 @property (nonatomic, assign) NSEdgeInsets pageMargins;
 @property (nonatomic, assign) CGSize pageSize;
 @property (nonatomic, assign) CGRect paperRect;
@@ -28,12 +29,15 @@
 
 @implementation WTPDFWriter
 
-- (id)initWithInvoice:(Invoice *)invoice pageSize:(CGSize)pageSize
+- (id)initWithCompany:(Company *)company
+              invoice:(Invoice *)invoice
+             pageSize:(CGSize)pageSize
 {
     self = [super init];
     if (self) {
         self.pageSize = pageSize;
         self.invoice = invoice;
+        self.company = company;
         
         self.webView = [[WebView alloc] initWithFrame:NSRectFromCGRect(CGRectMake(0.0f, 0.0f, pageSize.width, pageSize.height)) frameName:nil groupName:nil];
         _webView.shouldUpdateWhileOffscreen = YES;
@@ -56,6 +60,8 @@
     dateFormat.dateStyle = NSDateFormatterLongStyle;
     
     WTInvoiceDocument *document = [[WTInvoiceDocument alloc] initWithInvoice:_invoice];
+    document.company = _company;
+    
     NSString *renderedDocument = [template renderObjectsFromArray:@[document, dateFormat] error:&error];
     if (renderedDocument == nil) {
         NSLog(@"%@", error);

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Invoice.h"
+#import "Company.h"
 
 
 #define kPaperSizeA4 CGSizeMake(595.2,841.8)
@@ -16,7 +17,10 @@
 
 @interface WTPDFWriter : NSObject
 
-- (id)initWithInvoice:(Invoice *)invoice pageSize:(CGSize)pageSize;
+- (id)initWithCompany:(Company *)company
+              invoice:(Invoice *)invoice
+             pageSize:(CGSize)pageSize;
+
 - (void)write;
 
 @end
