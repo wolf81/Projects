@@ -43,6 +43,7 @@
                                                         initWithCorporation:nil
                                                         context:self.objectContext
                                                         isClient:NO];
+//        [windowController.window setFrame:NSRectFromCGRect(CGRectMake(0.0f, 0.0f, 800.0f, 800.0f)) display:YES];
         [windowController presentSheet:self.window];
     }
 }

@@ -54,7 +54,7 @@
 
 - (void)reloadData
 {
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Corporation" inManagedObjectContext:self.objectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Client" inManagedObjectContext:self.objectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     

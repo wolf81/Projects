@@ -32,13 +32,11 @@
 			<div>{{ company.zip }} {{ company.city }}</div>
 			<div>T {{ company.phone }}</div>
 			<div>{{ company.email }}</div>
-            <!--
-			<div>BTW-nummer: NL104336870B92</div>
+			<div>BTW-nummer: {{ company.vatNumber }}</div>
 			<div><br/></div>
-			<div>Bank: ABN AMRO</div>
-			<div>IBAN: NL97 ABNA 0575007033</div>
-			<div>KvK: 59844221</div>		
-             -->
+			<div>Bank: {{ company.bankName }}</div>
+			<div>IBAN: {{ company.bankAccount }}</div>
+			<div>KvK: {{ company.cocNumber }}</div>
 		</div>
 		<div><br/></div>		
 		<div>

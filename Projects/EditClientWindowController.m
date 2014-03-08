@@ -45,6 +45,26 @@
         _emailField.stringValue = _corporation.email;
         _countryField.stringValue = _corporation.country;
     }
+    
+    if (_isClient == NO) {
+        NSRect windowRect = [self.window.contentView bounds];
+        NSRect companyRect = _companyView.bounds;
+        windowRect.size.height += companyRect.size.height + 20.0f;
+
+        NSRect saveButtonFrame = _saveButton.frame;
+        saveButtonFrame.origin.y += companyRect.size.height;
+        _saveButton.frame = saveButtonFrame;
+        
+        NSRect cancelButtonFrame = _cancelButton.frame;
+        cancelButtonFrame.origin.y += companyRect.size.height;
+        _cancelButton.frame = cancelButtonFrame;
+
+        [self.window setFrame:windowRect display:NO animate:NO];
+
+        [self.window.contentView addSubview:_companyView];
+        companyRect.origin.y = _saveButton.frame.origin.y + 40.0f;
+        _companyView.frame = companyRect;
+    }
 }
 
 - (IBAction)saveAction:(id)sender
@@ -55,6 +75,12 @@
             self.corporation = (Client *) [NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:self.objectContext];
         } else {
             self.corporation = (Company *) [NSEntityDescription insertNewObjectForEntityForName:@"Company" inManagedObjectContext:self.objectContext];
+            
+            Company *company = (Company *)_corporation;
+            company.vatNumber = [_vatNumberField stringValue];
+            company.cocNumber = [_cocNumberField stringValue];
+            company.bankAccount = [_bankAccountField stringValue];
+            company.bankName = [_bankNameField stringValue];
         }
     }
 
